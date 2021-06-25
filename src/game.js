@@ -1,3 +1,4 @@
+import Control from './controls.js';
 import Note from './note.js';
 const gameBJO = new Image();
 const gameBG = new Image();
@@ -13,6 +14,7 @@ class Game {
     this.gameBG = gameBG;
     this.gameBJO = gameBJO;
     this.status = "playing";
+    this.control = new Control();
     // this.win = win;
     // this.lose = lose;
     this.dim_x = 1600;
@@ -26,6 +28,22 @@ class Game {
     this.ctx.drawImage(this.gameBG, 0, 0);
     this.ctx.drawImage(this.gameBJO, 0, 0);
     this.drawNotes()
+    this.drawBar();
+  }
+
+  drawBar() {
+    this.ctx.beginPath();
+    this.ctx.lineWidth = "0";
+    this.ctx.strokeStyle = "gold";
+    this.ctx.rect(880, 1020, 310, 110);
+    this.ctx.stroke();
+    this.ctx.shadowBlur = 20;
+    this.ctx.shadowColor = "gold";
+    // var grd = ctx.createLinearGradient(0, 0, 200, 0);
+    // grd.addColorStop(0, "red");
+    // grd.addColorStop(1, "white");
+    // ctx.fillStyle = grd;
+    // ctx.fillRect(880, 1020, 310, 110); 
   }
 
   step() {
@@ -38,17 +56,13 @@ class Game {
   }
 
   addNote() {
-    const notes = [
-      "note1",
-      "note2",
-      "note3",
-      "note4",
-      "note5"
-    ]
+    const notes = ["note1", "note2", "note3", "note4", "note5"]
     const positions = ["pos1", "pos2", "pos3", "pos4", "pos5"];
-    const note = notes[Math.floor(Math.random() * Math.floor(4))]
+    const note = notes[Math.floor(Math.random() * Math.floor(5))]
     const pos = positions[Math.floor(Math.random() * Math.floor(5))];
     this.notes.push(new Note(this.ctx, note, pos));
+    console.log(note)
+    console.log(this.notes)
   }
 
   removeNote() {

@@ -6,11 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const canvasEl = document.getElementsByTagName("canvas")[0];
   canvasEl.width = 1600
   canvasEl.height = 1200
+  const banjofrog1 = new Audio("assets/songs/banjofrog1.mp3")
 
   const ctx = canvasEl.getContext("2d");
-  const game = new Game(ctx);
-  // game.animate();
-  new GameView(game, ctx).start();
 
   document.getElementById("play-btn").addEventListener("click", () => {
 
@@ -19,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const game = new Game(ctx);
     new GameView(game, ctx).start();
+    banjofrog1.play();
   });
 
 });
