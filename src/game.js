@@ -1,4 +1,5 @@
 import Control from './controls.js';
+import Fret from './fret.js';
 import Note from './note.js';
 const gameBJO = new Image();
 const gameBG = new Image();
@@ -9,7 +10,6 @@ gameBJO.src = "assets/images/BANJOFINAL.png";
 class Game {
   constructor(ctx) {
     this.ctx = ctx;
-    // this.aMeter = aMeter;
     this.notes = [];
     this.gameBG = gameBG;
     this.gameBJO = gameBJO;
@@ -19,6 +19,10 @@ class Game {
     // this.lose = lose;
     this.dim_x = 1600;
     this.dim_y = 1200;
+    this.fret = new Fret(ctx);
+    this.meter_x = 160;
+    this.meter_y = 160;
+    this.score = 0;
   }
 
   draw() {
@@ -29,6 +33,7 @@ class Game {
     this.ctx.drawImage(this.gameBJO, 0, 0);
     this.drawNotes()
     this.drawBar();
+    this.drawScore();
   }
 
   drawBar() {
@@ -39,11 +44,19 @@ class Game {
     this.ctx.stroke();
     this.ctx.shadowBlur = 20;
     this.ctx.shadowColor = "gold";
-    // var grd = ctx.createLinearGradient(0, 0, 200, 0);
-    // grd.addColorStop(0, "red");
-    // grd.addColorStop(1, "white");
-    // ctx.fillStyle = grd;
-    // ctx.fillRect(880, 1020, 310, 110); 
+  }
+
+  drawNotes() {
+    this.notes.forEach(note => {
+      note.draw();
+    });
+  }
+
+  drawScore() {
+    const score = this.score;
+    this.ctx.font = '16px Arial';
+    this.ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 8, 20);
   }
 
   step() {
@@ -69,11 +82,6 @@ class Game {
     this.notes.shift();
   }
 
-  drawNotes() {
-    this.notes.forEach(note => {
-      note.draw();
-    });
-  }
 
   generateNotes() {
 
@@ -85,9 +93,15 @@ class Game {
 
       setTimeout(function () {
         removeNote();
-      }, 24 * 1000)
+      }, 30 * 1000)
     }, 800);
   };
+
+  noteCollision() {
+    const fret = this.fret;
+    const notes = this.notes;
+  }
 }
+
 
 export default Game;

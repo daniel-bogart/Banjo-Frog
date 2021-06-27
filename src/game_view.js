@@ -1,10 +1,10 @@
 // import Game from './game';
 
 class GameView {
-  constructor(game, ctx) {
+  constructor(game, ctx, bMeter) {
     this.ctx = ctx;
     this.game = game;
-    // this.aMeter = aMeter;
+    this.bMeter = bMeter;
     // this.Game.draw() = this.Game.draw().bind(this)
   }
 
@@ -22,9 +22,11 @@ class GameView {
 
   animate(){
     this.game.step();
-    this.game.draw(this.ctx);
+    this.game.draw(this.ctx, this.bMeter);
     requestAnimationFrame(this.animate.bind(this));
   }
+
+
 }
 
 export default GameView;

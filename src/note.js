@@ -44,7 +44,7 @@ class Note {
   }
 
   move() {
-    this.pos[1] += 1.5;
+    this.pos[1] += 2.4;
   }
 
 }
