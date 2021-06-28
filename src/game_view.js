@@ -1,10 +1,9 @@
 // import Game from './game';
 
 class GameView {
-  constructor(game, ctx, bMeter) {
+  constructor(game, ctx) {
     this.ctx = ctx;
     this.game = game;
-    this.bMeter = bMeter;
     // this.Game.draw() = this.Game.draw().bind(this)
   }
 
