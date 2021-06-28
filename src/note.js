@@ -26,7 +26,7 @@ class Note {
     if (this.startPos === "pos2") this.pos = [930, 50];
     if (this.startPos === "pos3") this.pos = [988, 50];
     if (this.startPos === "pos4") this.pos = [1062, 50];
-    if (this.startPos === "pos5") this.pos = [1124, 50];
+    if (this.startPos === "pos5") this.pos = [1128, 50];
   }
 
   draw() {

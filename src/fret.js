@@ -9,7 +9,7 @@ class Fret {
     this.dim_y = 110;
     this.center = [920, 1060]
     this.hit = false;
-    this.radius = 5;
+    this.radius = 10;
   }
 
   distance(pos1, pos2) {
