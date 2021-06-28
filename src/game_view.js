@@ -15,7 +15,7 @@ class GameView {
     const generateObjects = this.generateObjects.bind(this);
     setTimeout(function () {
       generateObjects();
-    }, 14 * 1000);
+    }, 9 * 1000);
     requestAnimationFrame(this.animate.bind(this));
   }
 

@@ -3,9 +3,10 @@ import Fret from './fret.js';
 import Note from './note.js';
 const gameBJO = new Image();
 const gameBG = new Image();
+const gameLOGO = new Image();
 gameBG.src = "assets/images/FINAL_VERSION.png";
-// gameBJO.src = "assets/images/banjoVERTthicc.png";
 gameBJO.src = "assets/images/BANJOFINAL.png";
+gameLOGO.src = "assets/images/FINAL_LOGO.png";
 
 class Game {
   constructor(ctx) {
@@ -13,11 +14,12 @@ class Game {
     this.notes = [];
     this.gameBG = gameBG;
     this.gameBJO = gameBJO;
+    this.gameLOGO = gameLOGO;
     this.status = "playing";
     this.control = new Control();
     // this.win = win;
     // this.lose = lose;
-    this.dim_x = 1600;
+    this.dim_x = 1600; // 1056 by 792 for future reference
     this.dim_y = 1200;
     this.fret = new Fret(ctx);
     this.meter_x = 160;
@@ -31,6 +33,7 @@ class Game {
     this.ctx.fillRect(0, 0, this.dim_x, this.dim_y);
     this.ctx.drawImage(this.gameBG, 0, 0);
     this.ctx.drawImage(this.gameBJO, 0, 0);
+    this.ctx.drawImage(this.gameLOGO, 20, -120, 400, 400)
     this.drawNotes()
     this.drawBar();
     this.drawScore();
@@ -56,7 +59,7 @@ class Game {
     const score = this.score;
     this.ctx.font = '40px Arial';
     this.ctx.fillStyle = "gold";
-    this.ctx.fillText("Notes Hit: "+score, 8, 30);
+    this.ctx.fillText("Notes Hit: "+score, 1300, 1100);
   }
 
   step() {
