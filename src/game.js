@@ -54,9 +54,9 @@ class Game {
 
   drawScore() {
     const score = this.score;
-    this.ctx.font = '16px Arial';
-    this.ctx.fillStyle = "#0095DD";
-    ctx.fillText("Score: "+score, 8, 20);
+    this.ctx.font = '40px Arial';
+    this.ctx.fillStyle = "gold";
+    this.ctx.fillText("Notes Hit: "+score, 8, 30);
   }
 
   step() {
@@ -97,9 +97,17 @@ class Game {
     }, 800);
   };
 
-  noteCollision() {
+  hitNoteCollision() {
     const fret = this.fret;
     const notes = this.notes;
+
+    for (let i = 0; i < notes.length; i++) {
+      const note = notes[i]
+
+      if (fret.hitNote(note)) {
+        this.score += 1;
+      }
+    }
   }
 }
 

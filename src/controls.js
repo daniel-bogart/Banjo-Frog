@@ -2,13 +2,7 @@ class Control {
   constructor() {
     this.pressed = {};
     this.renderPress = {};
-    this.pos = {
-      button1: [876, 1000],
-      button2: [930, 1000],
-      button3: [988, 1000],
-      button4: [1062, 1000],
-      button5: [1124, 1000]
-    }
+    this.pos = { button1: 65, button2: 83, button3: 68, button4: 70, button5: 71}
     this.A = [876, 1000];
     this.S = [930, 1000],
     this.D = [988, 1000],
