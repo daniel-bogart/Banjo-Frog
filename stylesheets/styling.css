@@ -29,7 +29,14 @@ body {
   position: relative; top: 100px;
 }
 
-.button {
+.pause-button {
+  z-index: 1;
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+}
+
+.play-button {
   z-index: 1;
   width: 100px;
   height: auto;

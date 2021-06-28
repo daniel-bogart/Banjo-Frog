@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctx = canvasEl.getContext("2d");
   
   const banjofrog1 = new Audio("assets/songs/banjofrog1.mp3")
-  document.getElementById("play").addEventListener("click", () => {
+  document.getElementById("play-button").addEventListener("click", () => {
 
     // const endPositions = ["endPos1", "endPos2"]
     // const endPos = endPositions[Math.floor(Math.random() * Math.floor(2))];
