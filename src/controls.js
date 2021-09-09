@@ -1,8 +1,8 @@
 class Control {
   constructor() {
-    this.pressed = {};
-    this.renderPress = {};
-    this.pos = { button1: 65, button2: 83, button3: 68, button4: 70, button5: 71}
+    this._pressed = {};
+    this._renderPress = {};
+    this.keys = { button1: 65, button2: 83, button3: 68, button4: 70, button5: 71}
     this.A = [876, 1000];
     this.S = [930, 1000],
     this.D = [988, 1000],
@@ -22,23 +22,23 @@ class Control {
   }
 
   Pressed(keyCode) {
-    return this.pressed[keyCode];
+    return this._pressed[keyCode];
   }
 
   RenderPress(keyCode) {
-    return this.renderPress[keyCode];
+    return this._renderPress[keyCode];
   }
 
   onKeydown(e) {
-    this.pressed[e.keyCode] = true;
-    this.renderPress[e.keyCode] = true;
+    this._pressed[e.keyCode] = true;
+    this._renderPress[e.keyCode] = true;
   }
 
   onKeyup(e) {
-    delete this.renderPress[e.keyCode];
+    delete this._renderPress[e.keyCode];
     let colTime = 288;
     setTimeout( () => {
-      delete this.pressed[e.keyCode];
+      delete this._pressed[e.keyCode];
     }, colTime);
   }
 }
