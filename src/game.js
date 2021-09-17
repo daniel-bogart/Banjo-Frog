@@ -1,5 +1,3 @@
-import Control from './controls.js';
-import Fret from './fret.js';
 import Note from './note.js';
 const gameBJO = new Image();
 const gameBG = new Image();
@@ -16,21 +14,19 @@ class Game {
     this.gameBJO = gameBJO;
     this.gameLOGO = gameLOGO;
     this.status = "playing";
-    this.control = new Control();
     // this.win = win;
     // this.lose = lose;
-    this.dim_x = 1200; // 1056 by 792 for future reference
+    this.dim_x = 1200;
     this.dim_y = 900;
-    this.fret = new Fret(ctx);
     this.meter_x = 160;
     this.meter_y = 160;
     this.score = 0;
     this.keys = { 'KeyA': 657, 'KeyS': 697.5, 'KeyD': 741, 'KeyF': 796.5, 'KeyG': 846}
+    this.notesHit = 0;
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.dim_x, this.dim_y);
-    // this.ctx.fillStyle = this.
     this.ctx.fillRect(0, 0, this.dim_x, this.dim_y);
     this.ctx.drawImage(this.gameBG, 0, 0);
     this.ctx.drawImage(this.gameBJO, 0, 0);
@@ -38,6 +34,7 @@ class Game {
     this.drawNotes()
     this.drawBar();
     this.drawScore();
+    this.drawNotesHit();
   }
 
 
@@ -61,7 +58,14 @@ class Game {
     const score = this.score;
     this.ctx.font = '36px Arial';
     this.ctx.fillStyle = "gold";
-    this.ctx.fillText("Notes Hit: "+score, 920, 825);
+    this.ctx.fillText("Score: "+score, 920, 825);
+  }
+
+  drawNotesHit() {
+    const notesHit = this.notesHit;
+    this.ctx.font = '36px Arial';
+    this.ctx.fillStyle = "gold";
+    this.ctx.fillText("Notes Hit: "+notesHit, 920, 780);
   }
 
   
@@ -70,7 +74,7 @@ class Game {
     const positions = ["pos1", "pos2", "pos3", "pos4", "pos5"];
     const note = notes[Math.floor(Math.random() * Math.floor(5))]
     const pos = positions[Math.floor(Math.random() * Math.floor(5))];
-    this.notes.push(new Note(this.ctx, note, pos, this.control));
+    this.notes.push(new Note(this.ctx, note, pos));
   }
   
   removeNote() {
@@ -79,7 +83,6 @@ class Game {
   
   
   generateNotes() {
-    let score = this.score
     const addNote = this.addNote.bind(this);
     const removeNote = this.removeNote.bind(this);
     this.noteIntervalId = setInterval(function () {
@@ -91,30 +94,17 @@ class Game {
       }, 30 * 1000)
     }, 800);
   };
-  
-  // noteCollision(e) {
-  //   this.notes.forEach(note => {
-  //     let horiz = note.pos[1]
-  //     if (note.control.isPressed(note.control.keys[note.vert]) 
-  //     // if (this.keys(e))
-  //     && (horiz > note.hitRange[0] && horiz < note.hitRange[1])){
-  //       console.log("SCORE!!!!!", this.score)
-  //       this.score += 1;
-  //       console.log("SCORE!!!!!", this.score)
-  //     }     
-  //   })
 
-  // }
   hitNote(e) {
     this.notes.forEach(note => {
       let horiz = note.pos[1]
-      // console.log("EE", e)
-      console.log(this.keys[e])
       if (this.keys[e] === note.pos[0] && 
       (horiz > note.hitRange[0] && horiz < note.hitRange[1])) {
-        console.log("SCORE!!!!!", this.score)
-        this.score += 1;
-        console.log("SCORE!!!!!", this.score)
+        this.notesHit += 1;
+        this.score += 17;
+      } else if (this.keys[e] === note.pos[0] &&
+      (horiz < note.hitRange[0] || horiz > note.hitRange[1])) {
+        this.score -= 1;
       }
     })
   }
@@ -128,12 +118,6 @@ class Game {
     });
     
   }
-
-  // checkKeyPressed() {
-  //   this.notes.forEach(note => {
-
-  //   })
-  // }
 
 }
 

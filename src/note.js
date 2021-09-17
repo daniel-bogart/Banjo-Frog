@@ -12,8 +12,7 @@ import Game from "./game";
 
 
 class Note {
-  constructor(ctx, type, startPos, control) {
-    this.control = control;
+  constructor(ctx, type, startPos) {
     this.ctx = ctx;
     this.type = type;
     this.startPos = startPos;
@@ -31,13 +30,9 @@ class Note {
     if (this.startPos === "pos4") this.pos = [796.5, 37.5];
     if (this.startPos === "pos5") this.pos = [846, 37.5];
     this.vert = this.pos[0];
-    // this.horiz = this.pos[1]
   }
 
   draw() {
-    // const grad = this.ctx.createRadialGradient(
-      
-    // )
     this.ctx.beginPath();
     this.ctx.drawImage(
       this.note,
@@ -51,14 +46,6 @@ class Note {
   move() {
     this.pos[1] += 2.0;
   }
-
-  // noteCollision() {
-  //   let horiz = this.pos[1]
-  //   if (this.control.isPressed(this.control.keys[this.vert]) 
-  //   && (horiz > this.hitRange[0] && horiz < this.hitRange[1])){
-  //     console.log("LONG LIVE OUR SOVIET MOTHERLAND BUILT BY THE PEOPLE'S MIGHT HAND")
-  //   }
-  // }
 
 }
 
