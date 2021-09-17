@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const game = new Game(ctx);
     new GameView(game, ctx).start();
     window.addEventListener('keyup', (e) => {
-      game.hitNote(e.code)
+      // game.hitNote(e.code)
+      game.checkNotes(e.code)
     });
     banjofrog1.play();
   });

@@ -43,6 +43,11 @@ body {
   cursor: pointer;
 }
 
+#play-button:hover {
+  transform: scale(1.2);
+  transition: all ease-in-out 1s;
+}
+
 .logo {
   z-index: 1;
   width: 300px;

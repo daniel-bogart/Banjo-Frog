@@ -2,6 +2,7 @@ import Note from './note.js';
 const gameBJO = new Image();
 const gameBG = new Image();
 const gameLOGO = new Image();
+const missNote = new Audio("assets/songs/miss_note.mp3")
 gameBG.src = "assets/images/FINAL_VERSION2.png";
 gameBJO.src = "assets/images/BANJOFINAL2.png";
 gameLOGO.src = "assets/images/FINAL_LOGO.png";
@@ -95,20 +96,26 @@ class Game {
     }, 800);
   };
 
-  hitNote(e) {
-    this.notes.forEach(note => {
+  hitNote(note, e) {
       let horiz = note.pos[1]
       if (this.keys[e] === note.pos[0] && 
       (horiz > note.hitRange[0] && horiz < note.hitRange[1])) {
-        this.notesHit += 1;
-        this.score += 17;
-      } else if (this.keys[e] === note.pos[0] &&
-      (horiz < note.hitRange[0] || horiz > note.hitRange[1])) {
-        this.score -= 1;
-      }
-    })
+        return true
+    }
   }
 
+  checkNotes(e) {
+    this.hitNote = this.hitNote.bind(this);
+    let notes = this.notes;
+    if (notes.some(note => this.hitNote(note, e))) {
+      this.notesHit += 1;
+      this.score += 10;
+    } else {
+      this.score -= 5;
+      missNote.play();
+    }
+  }
+  
   step() {
 
     this.notes.forEach(note => {
