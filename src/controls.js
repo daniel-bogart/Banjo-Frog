@@ -2,26 +2,27 @@ class Control {
   constructor() {
     this._pressed = {};
     this._renderPress = {};
-    this.keys = { button1: 65, button2: 83, button3: 68, button4: 70, button5: 71}
-    this.A = [876, 1000];
-    this.S = [930, 1000],
-    this.D = [988, 1000],
-    this.F = [1062, 1000],
-    this.G =  [1124, 1000]
+    this.keys = { 657: 'KeyA', 697.5: 'KeyS', 741: 'KeyD', 796.5: 'KeyF', 846: 'KeyG'}
+    // this.A = 65;
+    // this.S = 83;
+    // this.D = 68;
+    // this.F = 70;
+    // this.G =  71;
+    // this.fired = false;
 
-    this.addKeyListeners();
+    // this.addKeyListeners();
   }
 
-  addKeyListeners() {
-    window.addEventListener('keydown', (e) => {
-      this.onKeydown(e);
-    });
-    window.addEventListener('keyup', (e) => {
-      this.onKeyup(e);
-    });
-  }
+  // addKeyListeners() {
+  //   window.addEventListener('keydown', (e) => {
+  //     this.onKeydown(e);
+  //   });
+  //   window.addEventListener('keyup', (e) => {
+  //     this.onKeyup(e);
+  //   });
+  // }
 
-  Pressed(keyCode) {
+  isPressed(keyCode) {
     return this._pressed[keyCode];
   }
 
@@ -36,7 +37,7 @@ class Control {
 
   onKeyup(e) {
     delete this._renderPress[e.keyCode];
-    let colTime = 288;
+    let colTime = 1;
     setTimeout( () => {
       delete this._pressed[e.keyCode];
     }, colTime);

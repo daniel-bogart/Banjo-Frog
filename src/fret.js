@@ -3,11 +3,11 @@
 class Fret {
   constructor(ctx) {
     this.ctx = ctx;
-    this.pos = [880, 1020];
+    this.pos = [660, 765];
     // this.fret = fret;
-    this.dim_x = 310;
-    this.dim_y = 110;
-    this.center = [920, 1060]
+    this.dim_x = 232.5;
+    this.dim_y = 82.5;
+    this.center = [690, 795]
     this.hit = false;
     this.radius = 10;
   }

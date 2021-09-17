@@ -17,11 +17,12 @@ class GameView {
       generateObjects();
     }, 9 * 1000);
     requestAnimationFrame(this.animate.bind(this));
+    document.getElementById('big-logo').classList.toggle("no-logo")
   }
 
   animate(){
     this.game.step();
-    this.game.draw(this.ctx, this.bMeter);
+    this.game.draw(this.ctx);
     requestAnimationFrame(this.animate.bind(this));
   }
 
