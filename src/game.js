@@ -14,9 +14,6 @@ class Game {
     this.gameBG = gameBG;
     this.gameBJO = gameBJO;
     this.gameLOGO = gameLOGO;
-    this.status = "playing";
-    // this.win = win;
-    // this.lose = lose;
     this.dim_x = 1200;
     this.dim_y = 900;
     this.meter_x = 160;
@@ -24,6 +21,9 @@ class Game {
     this.score = 0;
     this.keys = { 'KeyA': 657, 'KeyS': 697.5, 'KeyD': 741, 'KeyF': 796.5, 'KeyG': 846}
     this.notesHit = 0;
+    this.playStatus = "playing";
+    this.win = "win";
+    this.lose = "lose";
   }
 
   draw() {
@@ -96,6 +96,10 @@ class Game {
     }, 800);
   };
 
+  stopNotes() {
+    clearInterval(this.noteIntervalId)
+  }
+
   hitNote(note, e) {
       let horiz = note.pos[1]
       if (this.keys[e] === note.pos[0] && 
@@ -117,13 +121,23 @@ class Game {
   }
   
   step() {
-
     this.notes.forEach(note => {
       if (note) {
         note.move();
       }
-    });
-    
+    })
+  }
+
+  checkGameStatus() {
+
+  }
+
+  winGame() {
+    this.playStatus = "gameWin"
+  }
+
+  loseGame() {
+    this.playStatus = "gameLose"
   }
 
 }
