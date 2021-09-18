@@ -26,19 +26,21 @@ body {
   z-index: 3;
   background-color: transparent;
   border: none;
-  position: relative; top: 100px;
+  position: relative; 
+  top: 30px;
+  /* right: 80px; */
 }
 
 .pause-button {
   z-index: 1;
-  width: 100px;
+  width: 150px;
   height: auto;
   cursor: pointer;
 }
 
 .play-button {
   z-index: 1;
-  width: 100px;
+  width: 150px;
   height: auto;
   cursor: pointer;
 }
@@ -46,6 +48,10 @@ body {
 #play-button:hover {
   transform: scale(1.2);
   transition: all ease-in-out 1s;
+}
+
+#play-button {
+  margin: 12px;
 }
 
 .logo {
@@ -59,9 +65,26 @@ body {
   max-width: 1000px;
   max-height: 1000px;
   top: 60px;
-  right: -220%;
+  right: -110%;
   z-index: 1;
+  transform: scale(1);
+	animation: pulse 2s infinite;
 }
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.95);
+	}
+}
+
 
 .no-logo {
   display: none;

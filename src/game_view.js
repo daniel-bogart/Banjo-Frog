@@ -9,9 +9,7 @@ class GameView {
   }
 
   gameEnd() {
-    console.log("HITTING 1 ----------")
     if (this.game.playStatus === "playing") {
-      console.log("HITTING 2 ---------------")
       this.game.stopNotes();
       this.game.playStatus = "ending"
     }
@@ -24,11 +22,10 @@ class GameView {
       generateObjects();
     }, 9 * 1000);
     setTimeout(function () {
-      console.log('HITTING 3 -------------')
       gameEnd();
     }, 90 * 1000);
     requestAnimationFrame(this.animate.bind(this));
-    document.getElementById('big-logo').classList.toggle("no-logo");
+    document.getElementById('big-logo').className = "no-logo";
   }
 
   animate(){

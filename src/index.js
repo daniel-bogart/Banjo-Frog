@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // game.hitNote(e.code)
       game.checkNotes(e.code)
     });
+    banjofrog1.currentTime = 0;
     banjofrog1.play();
   });
 
