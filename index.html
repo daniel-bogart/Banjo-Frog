@@ -17,7 +17,7 @@
     >
   </div>
   <script type="application/javascript" src="./dist/main.js"></script>
-  <button id="play">
+  <button id="play" class="play">
     <img 
       src="assets/images/FINAL_LOGO.png" 
       alt="Banjo Frog" 
@@ -27,18 +27,45 @@
     <img 
       src="assets/images/New_Game.png" 
       alt="play" 
-      class="play-button"
+      class="play-button menu-btns"
       id="play-button"
     >
     <img 
       src="assets/images/Instructions.png" 
-      alt="pause" 
-      class="pause-button"
-      id="play-button"
+      alt="instructions" 
+      class="instructions-button menu-btns"
+      id="instructions-button"
     >
   </button>
   <div class="canvi">
     <canvas class="canvas"></canvas>
+  </div>
+  <div 
+    id="instructions-modal"
+    class="instructions-modal-box"
+  >
+    <div class="instructions">
+      <p class="i-text">
+        You are a friendly amphibious creature performing a song on
+        the banjo at the county fair. Five lanes representing the 
+        five strings on a banjo will produce "notes" at the top of 
+        the lane that will make their way at a set pace toward the 
+        bottom/head of the banjo. You will need to master your timing 
+        in order to hit keys on the keyboard representing each of the 
+        five strings as they overlap on a perpendicular line on the 
+        fretboard. If you successfully hit a note, 10 points will be 
+        added to your score. If you miss a note or hit the wrong one 
+        by mistake, five points will be subtracted from your total 
+        score. If you are able to score over 900 points by the end of 
+        the song, you will win! Otherwise you may try again in a new 
+        game!
+      </p>
+      <h2 class="c-text">Controls</h2>
+      <p class="i-text itb">
+        Use the keys A, S, D, F, and G to pluck strings!
+      </p>
+      <button id="close-modal" class="close-modal">Close</button>
+    </div>
   </div>
 </body>
 </html>

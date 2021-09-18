@@ -16,41 +16,47 @@ body {
   height: 100%;
 }
 
+/* .background {
+  height: 100vh;
+} */
+
 .canvi {
   z-index: 2;
 }
-#play {
+.play {
   display: flex;
   justify-content: row;
   align-items: center;
   z-index: 3;
   background-color: transparent;
   border: none;
-  position: relative; 
-  top: 30px;
+  position: absolute; 
+  top: 300px;
   /* right: 80px; */
 }
 
-.pause-button {
-  z-index: 1;
-  width: 150px;
-  height: auto;
-  cursor: pointer;
+.playing {
+  position: absolute;
+  right: 60px;
+  top: 10px;
 }
 
-.play-button {
-  z-index: 1;
-  width: 150px;
-  height: auto;
-  cursor: pointer;
+.playing-int {
+  position: absolute;
+  right: 60px;
+  top: -45px;
 }
 
-#play-button:hover {
+.menu-btns:hover {
   transform: scale(1.2);
   transition: all ease-in-out 1s;
 }
 
-#play-button {
+.menu-btns {
+  z-index: 1;
+  width: 150px;
+  height: auto;
+  cursor: pointer;
   margin: 12px;
 }
 
@@ -64,8 +70,8 @@ body {
   position: absolute;
   max-width: 1000px;
   max-height: 1000px;
-  top: 60px;
-  right: -110%;
+  bottom: -90px;
+  right: -105%;
   z-index: 1;
   transform: scale(1);
 	animation: pulse 2s infinite;
@@ -85,7 +91,55 @@ body {
 	}
 }
 
-
 .no-logo {
   display: none;
+}
+
+.instructions-modal-box {
+  display: none
+}
+
+.display-instructions-modal {
+  display: block;
+  z-index: 20;
+  background: white;
+  width: 68vw;
+  height: auto;
+  position: absolute;
+  top: 460px;
+  border-radius: 16px;
+}
+
+.i-text {
+  font-size: 24px;
+}
+
+.itb {
+  display: flex;
+  justify-content: center;
+}
+
+.c-text {
+  font-size: 32px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.instructions {
+  padding: 52px;
+}
+
+.canvas {
+  position: relative;
+  top: 260px;
+  border-radius: 16px;
+}
+
+.close-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px;
 }

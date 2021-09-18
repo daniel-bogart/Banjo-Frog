@@ -26,6 +26,8 @@ class GameView {
     }, 90 * 1000);
     requestAnimationFrame(this.animate.bind(this));
     document.getElementById('big-logo').className = "no-logo";
+    document.getElementById("play-button").className = "playing menu-btns";
+    document.getElementById("instructions-button").className = "playing-int menu-btns";
   }
 
   animate(){

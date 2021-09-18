@@ -8,15 +8,24 @@ document.addEventListener("DOMContentLoaded", function () {
   
   const ctx = canvasEl.getContext("2d");
   
-  const banjofrog1 = new Audio("assets/songs/banjofrog1.mp3")
-  document.getElementById("play-button").addEventListener("click", () => {
-
+  const closeModal = document.getElementById("close-modal")
+  const banjofrog1 = new Audio("assets/songs/banjofrog1.mp3");
+  const instructionsModal = document.getElementById("instructions-modal");
+  const instructionsBtn = document.getElementById('instructions-button');
   
-    
+  instructionsBtn.addEventListener("click", () => {
+    instructionsModal.classList.toggle("display-instructions-modal")
+  });
+
+  closeModal.addEventListener("click", () => {
+    instructionsModal.classList.toggle("display-instructions-modal")
+  })
+
+
+  document.getElementById("play-button").addEventListener("click", () => {
     const game = new Game(ctx);
     new GameView(game, ctx).start();
     window.addEventListener('keyup', (e) => {
-      // game.hitNote(e.code)
       game.checkNotes(e.code)
     });
     banjofrog1.currentTime = 0;
