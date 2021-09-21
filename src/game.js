@@ -117,6 +117,7 @@ class Game {
 
   checkNotes(e) {
     const currentNote = this.currentNote;
+    console.log("CURRENT NOTE", currentNote);
     this.hitNote = this.hitNote.bind(this);
     let notes = this.notes;
     if (notes.some(note => this.hitNote(note, e)) && e !== currentNote) {
@@ -130,7 +131,6 @@ class Game {
   }
   
   step() {
-    console.log(this.currentNote)
     this.notes.forEach(note => {
       if (note) {
         note.move();
