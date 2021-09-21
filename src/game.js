@@ -21,7 +21,7 @@ class Game {
     this.score = 0;
     this.keys = { 'KeyA': 657, 'KeyS': 697.5, 'KeyD': 741, 'KeyF': 796.5, 'KeyG': 846}
     this.notesHit = 0;
-    this.currentNote = null
+    this.currentNote = { 'KeyA': 0, 'KeyS': 0, 'KeyD': 0, 'KeyF': 0, 'KeyG': 0 }
   }
 
   draw() {
@@ -108,21 +108,21 @@ class Game {
 
   resetCurrentNote(e) {
     const currentNote = this.currentNote
-    if (e === currentNote) {
-    setTimeout(() => this.currentNote = null, .4 * 1000);
-    };
+    setTimeout(() => currentNote[e] = 0, 1 * 1000);
+    ;
   };
 
   
 
   checkNotes(e) {
     const currentNote = this.currentNote;
+    console.log("CURRENT NOTE", currentNote);
     this.hitNote = this.hitNote.bind(this);
     let notes = this.notes;
-    if (notes.some(note => this.hitNote(note, e)) && e !== currentNote) {
+    if (notes.some(note => this.hitNote(note, e)) && currentNote[e] === 0) {
       this.notesHit += 1;
       this.score += 10;
-      this.currentNote = e;
+      currentNote[e] += 1;
     } else {
       this.score -= 5;
       missNote.play();
