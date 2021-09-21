@@ -18,7 +18,7 @@ The instructions modal contains the game's premise as well as controls on how th
 
 ### Gameplay
 The gameplay involves five seperate keys on the keyboard representing strings. Each key, correlated to a given string, must be pressed while a vertical note on a 
-downward path crosses a horizontal plain. Ten points will be added to a total score for each hit, five subtracted for each wrong key press, and zero points for a miss.
+downward path crosses a horizontal plain. Ten points will be added to a total score for each hit, ten points subtracted for each wrong key press, and zero points for a miss.
 After the song ends and the notes stop, one of four outcomes will be displayed for the player based on their final score.
 ![gameplay](assets/images/readme_images/gameplay_photo.png)
 Less than 600 points: Poor
@@ -50,14 +50,15 @@ keyup events to register a 'hit'. The notes flow along a vertical downward path,
 
   checkNotes(e) {
     const currentNote = this.currentNote;
+    console.log("CURRENT NOTE", currentNote);
     this.hitNote = this.hitNote.bind(this);
     let notes = this.notes;
-    if (notes.some(note => this.hitNote(note, e)) && e !== currentNote) {
+    if (notes.some(note => this.hitNote(note, e)) && currentNote[e] === 0) {
       this.notesHit += 1;
       this.score += 10;
-      this.currentNote = e;
+      currentNote[e] += 1;
     } else {
-      this.score -= 5;
+      this.score -= 10;
       missNote.play();
     }
   }
@@ -67,9 +68,8 @@ A variable called 'currentNote' keeps track of the previous note to ensure that 
 ```
   resetCurrentNote(e) {
     const currentNote = this.currentNote
-    if (e === currentNote) {
-    setTimeout(() => this.currentNote = null, .4 * 1000);
-    };
+    setTimeout(() => currentNote[e] = 0, .5 * 1000);
+    ;
   };
 ```
 

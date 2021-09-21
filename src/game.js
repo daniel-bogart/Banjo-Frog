@@ -108,11 +108,9 @@ class Game {
 
   resetCurrentNote(e) {
     const currentNote = this.currentNote
-    setTimeout(() => currentNote[e] = 0, 1 * 1000);
+    setTimeout(() => currentNote[e] = 0, .5 * 1000);
     ;
   };
-
-  
 
   checkNotes(e) {
     const currentNote = this.currentNote;
@@ -124,7 +122,7 @@ class Game {
       this.score += 10;
       currentNote[e] += 1;
     } else {
-      this.score -= 5;
+      this.score -= 10;
       missNote.play();
     }
   }
@@ -135,18 +133,6 @@ class Game {
         note.move();
       }
     });
-  }
-
-  checkGameStatus() {
-
-  }
-
-  winGame() {
-    this.playStatus = "gameWin"
-  }
-
-  loseGame() {
-    this.playStatus = "gameLose"
   }
 
 }
