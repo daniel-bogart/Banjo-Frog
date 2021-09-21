@@ -50,7 +50,6 @@ keyup events to register a 'hit'. The notes flow along a vertical downward path,
 
   checkNotes(e) {
     const currentNote = this.currentNote;
-    console.log("CURRENT NOTE", currentNote);
     this.hitNote = this.hitNote.bind(this);
     let notes = this.notes;
     if (notes.some(note => this.hitNote(note, e)) && currentNote[e] === 0) {
