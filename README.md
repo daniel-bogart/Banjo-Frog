@@ -8,7 +8,8 @@ The live working demo can be found here: [Banjo Frog Demo](https://daniel-bogart
 
 ## Site:
 ### Welcome Menu
-The welcome screen features two clickable buttons. The New Game button will start the game and the instructions button will bring up the instructions modal.
+The welcome menu features two clickable buttons. The New Game button will start the game and the instructions button will bring up the instructions modal.
+Once the game is started, an audio button will also appear.
 ![banjo-welcome-menu](assets/images/readme_images/menu_photo.png)
 
 ### Instructions
@@ -26,3 +27,81 @@ More than 800 points: Above Average
 More than 900 points: Professional
 ![professional-outcome](assets/images/readme_images/win_photo.png)
 ![poor-outcome](assets/images/readme_images/lose_photo.png)
+
+## Featured Code:
+### Game Controls
+Banjo Frog uses fairly simple game controls, utilizing the keys, A, S, D, F, G. These controls are recorded using an event listener to track
+keyup events to register a 'hit'. The notes flow along a vertical downward path, allowing for simple collision registration.
+
+```
+  window.addEventListener('keyup', (e) => {
+    game.checkNotes(e.code);
+    game.resetCurrentNote(e.code);
+  });
+
+
+  hitNote(note, e) {
+      let horiz = note.pos[1]
+      if (this.keys[e] === note.pos[0] && 
+      (horiz > note.hitRange[0] && horiz < note.hitRange[1])) {
+        return true
+    }
+  }
+
+  checkNotes(e) {
+    const currentNote = this.currentNote;
+    this.hitNote = this.hitNote.bind(this);
+    let notes = this.notes;
+    if (notes.some(note => this.hitNote(note, e)) && e !== currentNote) {
+      this.notesHit += 1;
+      this.score += 10;
+      this.currentNote = e;
+    } else {
+      this.score -= 5;
+      missNote.play();
+    }
+  }
+```
+
+A variable called 'currentNote' keeps track of the previous note to ensure that users cannot spam keys for extra points.
+```
+  resetCurrentNote(e) {
+    const currentNote = this.currentNote
+    if (e === currentNote) {
+    setTimeout(() => this.currentNote = null, .4 * 1000);
+    };
+  };
+```
+
+This is a code snippet of how the notes are generated and removed. The notes position is stored in local state.
+```
+  addNote() {
+    const notes = ["note1", "note2", "note3", "note4", "note5"]
+    const positions = ["pos1", "pos2", "pos3", "pos4", "pos5"];
+    const note = notes[Math.floor(Math.random() * Math.floor(5))]
+    const pos = positions[Math.floor(Math.random() * Math.floor(5))];
+    this.notes.push(new Note(this.ctx, note, pos));
+  }
+  
+  removeNote() {
+    this.notes.shift();
+  }
+  
+  
+  generateNotes() {
+    const addNote = this.addNote.bind(this);
+    const removeNote = this.removeNote.bind(this);
+    this.noteIntervalId = setInterval(function () {
+      
+      addNote();
+      
+      setTimeout(function () {
+        removeNote();
+      }, 30 * 1000)
+    }, 800);
+  };
+
+  move() {
+    this.pos[1] += 2.0;
+  }
+```
