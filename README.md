@@ -1,0 +1,1 @@
+![banjo-frog-logo](assets/images/readme_images/menu_photo.png)
