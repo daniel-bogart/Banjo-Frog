@@ -121,10 +121,12 @@ class Game {
     this.hitNote = this.hitNote.bind(this);
     let notes = this.notes;
     if (notes.some(note => this.hitNote(note, e)) && e !== currentNote) {
+      console.log("THIS NOTE IS ALSO HITTING")
       this.notesHit += 1;
       this.score += 10;
       this.currentNote = e;
     } else {
+      console.log("MISS NOTE HITTING!")
       this.score -= 5;
       missNote.play();
     }

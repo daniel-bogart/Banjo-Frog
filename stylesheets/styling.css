@@ -145,6 +145,8 @@ body {
 
 .close-modal {
   margin: 24px;
+  position: relative;
+  top: 44px;
 }
 
 #key-box {
@@ -188,10 +190,6 @@ body {
   position: relative;
   left: 194px;
 }
-
-/* .win2-modal-box {
-  display: none
-} */
 
 .win-check-modal {
   display: none
