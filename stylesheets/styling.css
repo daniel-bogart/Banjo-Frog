@@ -159,7 +159,7 @@ body {
 }
 
 .key-display {
-  margin: 12px;
+  /* margin: 12px; */
   font-size: 40px;
   color: gold;
 }
@@ -171,24 +171,29 @@ body {
   /* color: blue */
 }
 
+#KeyA {
+  position: absolute;
+  left: 13px;
+}
+
 #KeyS {
-  position: relative;
-  left: 46px;
+  position: absolute;
+  left: 60px;
 }
 
 #KeyD {
-  position: relative;
-  left: 90px;
+  position: absolute;
+  left: 100px;
 }
 
 #KeyF {
-  position: relative;
-  left: 148px;
+  position: absolute;
+  left: 162px;
 }
 
 #KeyG {
-  position: relative;
-  left: 194px;
+  position: absolute;
+  left: 204px;
 }
 
 .win-check-modal {
