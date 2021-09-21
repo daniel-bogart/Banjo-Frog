@@ -15,15 +15,50 @@ class GameView {
     }
   }
 
+  winCheck() {
+    const score = this.game.score;
+    if (score >= 900) {
+        document.getElementById('win1-modal').className = 'win1-display';
+    } else if (score >= 800) {
+        document.getElementById('win2-modal').className = 'win2-display';
+    } else if (score <= 799) {
+        document.getElementById('lose1-modal').className = 'lose1-display';
+    } else {
+        document.getElementById('lose2-modal').className = 'lose2-display';
+    }
+  };
+
+
+  cancelModal() {
+    const score = this.game.score;
+    if (score >= 900) {
+        document.getElementById('win1-modal').className = 'win-check-modal';
+    } else if (score >= 800) {
+        document.getElementById('win2-modal').className = 'win-check-modal';
+    } else if (score <= 600) {
+        document.getElementById('lose1-modal').className = 'win-check-modal';
+    } else {
+        document.getElementById('lose2-modal').className = 'win-check-modal';
+    }
+  };
+
   start() {
+    const cancelModal = this.cancelModal.bind(this);
     const generateObjects = this.generateObjects.bind(this);
     const gameEnd = this.gameEnd.bind(this);
+    const winCheck = this.winCheck.bind(this);
+    setTimeout(function () {
+      cancelModal();
+    }, .1 * 1000);
     setTimeout(function () {
       generateObjects();
     }, 9 * 1000);
     setTimeout(function () {
       gameEnd();
-    }, 90 * 1000);
+    }, 88 * 1000);
+    setTimeout(function () {
+      winCheck();
+    }, 96 * 1000);
     requestAnimationFrame(this.animate.bind(this));
     document.getElementById('big-logo').className = "no-logo";
     document.getElementById("play-button").className = "playing menu-btns";

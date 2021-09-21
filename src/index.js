@@ -22,15 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 
   window.addEventListener('keydown', (e) => {
-    console.log("KEY-CODE11111111", e.code)
-    console.log("Change11111111", document.getElementById(e.code).classList)
     document.getElementById(e.code).className = 'key-display';
   });
   window.addEventListener('keyup', (e) => {
-    console.log("KEY-CODE22222222", e.code)
-    console.log("Change22222222", document.getElementById(e.code).classList)
     document.getElementById(e.code).className = 'display-key-none'
   });
+
 
 
   document.getElementById("play-button").addEventListener("click", () => {

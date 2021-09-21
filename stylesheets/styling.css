@@ -188,3 +188,55 @@ body {
   position: relative;
   left: 194px;
 }
+
+/* .win2-modal-box {
+  display: none
+} */
+
+.win-check-modal {
+  display: none
+}
+
+.win1-display {
+  position: absolute;
+  top: 430px;
+  height: auto;
+  z-index: 6;
+}
+
+.win2-display {
+  position: absolute;
+  top: 430px;
+  height: auto;
+  z-index: 6;
+}
+
+.lose1-display {
+  position: absolute;
+  top: 430px;
+  height: auto;
+  z-index: 6;
+}
+
+.lose2-display {
+  position: absolute;
+  top: 430px;
+  height: auto;
+  z-index: 6;
+}
+
+.win-check-img {
+  max-width: 1100px;
+  border-radius: 16px;
+}
+
+.win-modal-text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: -159px;
+  right: 520px;
+  align-items: center;
+  font-size: 36px;
+  color: gold;
+}
