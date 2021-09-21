@@ -18,7 +18,7 @@ class GameView {
         document.getElementById('win1-modal').className = 'win1-display';
     } else if (score >= 800) {
         document.getElementById('win2-modal').className = 'win2-display';
-    } else if (score <= 799) {
+    } else if (score <= 600) {
         document.getElementById('lose1-modal').className = 'lose1-display';
     } else {
         document.getElementById('lose2-modal').className = 'lose2-display';
