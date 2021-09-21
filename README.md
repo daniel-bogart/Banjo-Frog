@@ -4,7 +4,8 @@
 [Banjo Frog](https://daniel-bogart.github.io/Banjo-Frog/) is an arcade-style web-based video game where users can simulate playing a banjo.
 
 ## Demo:
-The live working demo can be found here: ### [Banjo Frog Demo](https://daniel-bogart.github.io/Banjo-Frog/)
+The live working demo can be found here: 
+### [Banjo Frog Demo](https://daniel-bogart.github.io/Banjo-Frog/)
 
 ## Site:
 ### Welcome Menu
