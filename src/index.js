@@ -12,6 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const banjofrog1 = new Audio("assets/songs/banjofrog1.mp3");
   const instructionsModal = document.getElementById("instructions-modal");
   const instructionsBtn = document.getElementById('instructions-button');
+  const soundOn = document.getElementById('sound-on-button');
+  const soundOff = document.getElementById('sound-off-button');
+
+  soundOn.addEventListener("click", () => {
+    soundOn.classList.toggle("sound-button");
+    soundOff.className = "sound-off-button menu-btns";
+    banjofrog1.muted = true;
+  })
+
+  soundOff.addEventListener("click", () => {
+    soundOff.classList.toggle("sound-button");
+    soundOn.className = "sound-on-button menu-btns";
+    banjofrog1.muted = false;
+  })
   
   instructionsBtn.addEventListener("click", () => {
     instructionsModal.classList.toggle("display-instructions-modal")
@@ -34,10 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const game = new Game(ctx);
     new GameView(game, ctx).start();
     window.addEventListener('keyup', (e) => {
-      game.checkNotes(e.code)
+      game.checkNotes(e.code);
+      game.resetCurrentNote(e.code);
     });
     banjofrog1.currentTime = 0;
     banjofrog1.play();
+    soundOn.className = 'sound-on-button menu-btns'
   });
 
   

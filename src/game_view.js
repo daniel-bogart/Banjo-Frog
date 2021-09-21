@@ -9,10 +9,7 @@ class GameView {
   }
 
   gameEnd() {
-    if (this.game.playStatus === "playing") {
-      this.game.stopNotes();
-      this.game.playStatus = "ending"
-    }
+    this.game.stopNotes();
   }
 
   winCheck() {
@@ -30,16 +27,10 @@ class GameView {
 
 
   cancelModal() {
-    const score = this.game.score;
-    if (score >= 900) {
-        document.getElementById('win1-modal').className = 'win-check-modal';
-    } else if (score >= 800) {
-        document.getElementById('win2-modal').className = 'win-check-modal';
-    } else if (score <= 600) {
-        document.getElementById('lose1-modal').className = 'win-check-modal';
-    } else {
-        document.getElementById('lose2-modal').className = 'win-check-modal';
-    }
+    document.getElementById('win1-modal').className = 'win-check-modal';
+    document.getElementById('win2-modal').className = 'win-check-modal';
+    document.getElementById('lose1-modal').className = 'win-check-modal';
+    document.getElementById('lose2-modal').className = 'win-check-modal';
   };
 
   start() {

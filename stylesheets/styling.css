@@ -236,7 +236,25 @@ body {
   position: absolute;
   bottom: -159px;
   right: 520px;
-  align-items: center;
+  /* align-items: center; */
   font-size: 36px;
   color: gold;
+}
+
+.sound-button {
+  display: none;
+}
+
+.sound-on-button {
+  position: absolute;
+  right: -595px;
+  top: -57px;
+  max-width: 100px;
+}
+
+.sound-off-button {
+  position: absolute;
+  right: -595px;
+  top: -57px;
+  max-width: 100px;
 }
