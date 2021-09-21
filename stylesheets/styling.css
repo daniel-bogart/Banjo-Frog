@@ -129,6 +129,12 @@ body {
 
 .instructions {
   padding: 52px;
+  background: rgb(226, 194, 254);
+  color: rgb(0, 157, 157);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .canvas {
@@ -138,8 +144,47 @@ body {
 }
 
 .close-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 24px;
+}
+
+#key-box {
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 1036px;
+  left: 1000px;
+}
+
+.key-display {
+  margin: 12px;
+  font-size: 40px;
+  color: gold;
+}
+
+.display-key-none {
+  margin: 12px;
+  font-size: 40px;
+  display: none;
+  /* color: blue */
+}
+
+#KeyS {
+  position: relative;
+  left: 46px;
+}
+
+#KeyD {
+  position: relative;
+  left: 90px;
+}
+
+#KeyF {
+  position: relative;
+  left: 148px;
+}
+
+#KeyG {
+  position: relative;
+  left: 194px;
 }

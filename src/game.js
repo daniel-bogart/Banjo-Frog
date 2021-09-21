@@ -125,7 +125,7 @@ class Game {
       if (note) {
         note.move();
       }
-    })
+    });
   }
 
   checkGameStatus() {
