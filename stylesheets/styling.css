@@ -16,10 +16,6 @@ body {
   height: 100%;
 }
 
-/* .background {
-  height: 100vh;
-} */
-
 .canvi {
   z-index: 2;
 }
@@ -130,7 +126,7 @@ body {
 .instructions {
   padding: 52px;
   background: rgb(226, 194, 254);
-  color: rgb(0, 157, 157);
+  color: rgb(52, 162, 179);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -149,15 +145,6 @@ body {
   top: 44px;
 }
 
-/* display: flex;
-justify-content: row;
-align-items: center;
-z-index: 3;
-background-color: transparent;
-border: none;
-position: absolute; 
-top: 300px; */
-
 .key-container {
   z-index: 5;
   display: flex;
@@ -165,21 +152,23 @@ top: 300px; */
   align-items: center;
   position: absolute;
   top: 1036px;
-  /* left: 1000px; */
 }
 
 .key-display {
-  /* margin: 12px; */
   font-size: 40px;
   color: gold;
 }
 
 .display-key-none {
-  margin: 12px;
-  font-size: 40px;
   display: none;
-  /* z-index: 10;
-  color: yellow */
+}
+
+.display-key-blue {
+  margin: 4px;
+  font-size: 40px;
+  /* display: none; */
+  z-index: 10;
+  color: turquoise;
 }
 
 #KeyA {

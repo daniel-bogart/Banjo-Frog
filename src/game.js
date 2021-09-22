@@ -134,6 +134,13 @@ class Game {
     });
   }
 
+  changeClass() {
+    const ids = ["KeyA", "KeyS", "KeyD", "KeyF", "KeyG"];
+    for (let id of ids) {
+      document.getElementById(id).className = "display-key-blue";
+    }
+  };
+
 }
 
 

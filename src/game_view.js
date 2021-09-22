@@ -49,7 +49,7 @@ class GameView {
     }, 88 * 1000);
     setTimeout(function () {
       winCheck();
-    }, 96 * 1000);
+    }, 100 * 1000);
     requestAnimationFrame(this.animate.bind(this));
     document.getElementById('big-logo').className = "no-logo";
     document.getElementById("play-button").className = "playing menu-btns";

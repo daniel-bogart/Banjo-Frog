@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById(e.code).className = 'key-display';
   });
   window.addEventListener('keyup', (e) => {
-    document.getElementById(e.code).className = 'display-key-none'
+    document.getElementById(e.code).className = 'display-key-blue';
   });
 
 
@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
       game.checkNotes(e.code);
       game.resetCurrentNote(e.code);
     });
+    game.changeClass();
     banjofrog1.currentTime = 0;
     banjofrog1.play();
     soundOn.className = 'sound-on-button menu-btns'
