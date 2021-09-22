@@ -38,26 +38,33 @@ class Game {
 
 
   drawBar() {
+    this.ctx.shadowBlur = 20;
+    this.ctx.shadowColor = 'gold';
     this.ctx.beginPath();
     this.ctx.lineWidth = "0";
     this.ctx.strokeStyle = "gold";
     this.ctx.rect(660, 765, 232.5, 82.5);
     this.ctx.stroke();
-    this.ctx.shadowBlur = 20;
-    this.ctx.shadowColor = "gold";
+    this.ctx.shadowBlur = 0;
   }
 
   drawNotes() {
+    this.ctx.shadowBlur = 20;
+    this.ctx.shadowColor = 'gold';
     this.notes.forEach(note => {
       note.draw();
     });
+    this.ctx.shadowBlur = 0;
   }
 
   drawScore() {
+    this.ctx.shadowBlur = 20;
+    this.ctx.shadowColor = 'gold';
     const score = this.score;
     this.ctx.font = '36px Arial';
     this.ctx.fillStyle = "gold";
     this.ctx.fillText("Score: "+score, 920, 825);
+    this.ctx.shadowBlur = 0;
   }
 
   drawNotesHit() {
