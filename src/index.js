@@ -35,19 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
     instructionsModal.classList.toggle("display-instructions-modal")
   })
 
-  window.addEventListener('keydown', (e) => {
-    document.getElementById(e.code).className = 'key-display';
-  });
-  window.addEventListener('keyup', (e) => {
-    document.getElementById(e.code).className = 'display-key-blue';
-  });
-
 
 
   document.getElementById("play-button").addEventListener("click", () => {
     const game = new Game(ctx);
     new GameView(game, ctx).start();
+    window.addEventListener('keydown', (e) => {
+      document.getElementById(e.code).className = 'key-display';
+    });
     window.addEventListener('keyup', (e) => {
+      document.getElementById(e.code).className = 'display-key-blue';
       game.checkNotes(e.code);
       game.resetCurrentNote(e.code);
     });
