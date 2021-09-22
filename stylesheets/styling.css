@@ -149,13 +149,23 @@ body {
   top: 44px;
 }
 
-#key-box {
+/* display: flex;
+justify-content: row;
+align-items: center;
+z-index: 3;
+background-color: transparent;
+border: none;
+position: absolute; 
+top: 300px; */
+
+.key-container {
   z-index: 5;
   display: flex;
-  flex-direction: row;
+  justify-content: row;
+  align-items: center;
   position: absolute;
   top: 1036px;
-  left: 1000px;
+  /* left: 1000px; */
 }
 
 .key-display {
@@ -168,32 +178,38 @@ body {
   margin: 12px;
   font-size: 40px;
   display: none;
-  /* color: blue */
+  /* z-index: 10;
+  color: yellow */
 }
 
 #KeyA {
   position: absolute;
-  left: 13px;
+  left: 60px;
+  top: 9px;
 }
 
 #KeyS {
   position: absolute;
-  left: 60px;
+  left: 107px;
+  top: 9px;
 }
 
 #KeyD {
   position: absolute;
-  left: 100px;
+  left: 149px;
+  top: 9px;
 }
 
 #KeyF {
   position: absolute;
-  left: 162px;
+  left: 208px;
+  top: 9px;
 }
 
 #KeyG {
   position: absolute;
-  left: 204px;
+  left: 254px;
+  top: 9px;
 }
 
 .win-check-modal {
